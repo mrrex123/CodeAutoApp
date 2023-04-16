@@ -1,1 +1,0 @@
-<?php ehco 'john' ?>
