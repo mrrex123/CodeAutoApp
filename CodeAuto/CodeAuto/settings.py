@@ -87,20 +87,7 @@ DATABASES = {
 
 }
 
-'''
 
-    'default': {
-
-        "ENGINE": "mssql",
-        "NAME": "healthclientapi2",
-        "USER": "rex.ampofo",
-        "PASSWORD": "Keep@123$1",
-        "HOST": "192.168.98.21",
-        "PORT": "1433",
-        "OPTIONS": {"driver": "ODBC Driver 17 for SQL Server",
-                    },
-    },
-'''
 
 
 # Password validation
