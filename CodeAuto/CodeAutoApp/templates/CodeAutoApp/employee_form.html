@@ -1,0 +1,588 @@
+{% extends "CodeAutoApp/base.html" %}
+{% load crispy_forms_tags %}
+
+ {% block content %}
+
+<div class="container2 row p-0 m-0 col-12">
+    <div class="col-md-4 offset-md-1 mt-5">
+         {{form_runTime.Amount|as_crispy_field}}
+    </div>
+
+     <div class="col-md-4 offset-md-1 mt-5">
+         {{form_smsTime.Amount|as_crispy_field}}
+    </div>
+</div>
+
+<br>
+
+      <a href="{% url 'data_visualizations' %}" class="btn btn-secondary btn-block btn-lg">
+        <i class="fas fa-stream"> </i> Data Visualizations
+        </a>
+<br>
+
+  <div class="container2 row p-0 m-0 col-12">
+      <!--  <a class="btn btn-info form-control text-white"> Run Script</a> -->
+<!-- pause  -->
+       <div style="border:1px solid black; background-color:white; margin: 1px 0px" class="div1 col-4" >
+
+      <div class="container3">
+      <div class="col-md-10 offset-md-1 mt-5">
+      <div class="jumbotron">
+        <h2 class="display-5">SMS Job</h2>
+        <p class="lead font-italic">Python Django project for implementing CRUD operations</p>
+        <hr class="my-4">
+
+
+
+
+
+<form action="" method="post" autocomplete="off">
+ {% csrf_token %}
+ <!--{{form_sms|crispy}}  -->
+
+ {{form_sms.message|as_crispy_field}}
+    <br>
+  {{form_sms.SenderId|as_crispy_field}}
+    <br>
+ {{form_sms.RecurrentType|as_crispy_field}}
+    <br>
+  {{form_sms.RecurrentDate|as_crispy_field}}
+    <br>
+ {{form_sms.StartDate|as_crispy_field}}
+    <br>
+  {{form_sms.EndDate|as_crispy_field}}
+    <br>
+
+
+
+    <div class="row">
+          <div class="col-md-5">
+               <button type="submit" class="btn btn-success btn-block btn-lg" name="action" value="run_sms"><i class="fas fa-stream"></i>Run</button>
+        </div>
+
+          <div class="col-md-7">
+
+        <button style="background-color:red" type="submit" class="btn btn-success btn-block btn-lg" name="action" value="save_sms"><i class="fas fa-database"></i>Save Job</button>
+
+
+        </div>
+    </div>
+
+    <br>
+
+<br>
+
+</form>
+
+
+      </div>
+      </div>
+      </div>
+
+       </div>
+
+      <!-- pause  -->
+        <div  style="border:1px solid black; background-color:white; margin: 1px 0px"  class="div1 col-4" >
+
+      <div class="container4">
+      <div class="col-md-10 offset-md-1 mt-5">
+      <div class="jumbotron1">
+        <h2 class="display-5">Python Job</h2>
+        <p class="lead font-italic">Python Django project for implementing CRUD operations</p>
+        <hr class="my-4">
+
+
+<form action="" method="post" autocomplete="off">
+ {% csrf_token %}
+<!-- --> {{form_script|crispy}} <!-- we can use this or add more modification below
+
+
+{{form_script.Script|as_crispy_field}}
+    <br>
+ {{form_script.RecurrentType|as_crispy_field}}
+    <br>
+  {{form_script.RecurrentDate|as_crispy_field}}
+
+    <br>
+ {{form_script.StartDate|as_crispy_field}}
+    <br>
+  {{form_script.EndDate|as_crispy_field}}
+    <br>
+
+-->
+
+<br>
+
+    <div class="row">
+        <div class="col-md-5">
+               <button type="submit" class="btn btn-success btn-block btn-lg" name="action" value="run_python"><i class="fas fa-stream"></i>Run</button>
+        </div>
+
+          <div class="col-md-7">
+
+        <button style="background-color:red" type="submit" class="btn btn-success btn-block btn-lg" name="action" value="save_python"><i class="fas fa-database"></i>Save Job</button>
+
+
+        </div>
+    </div>
+
+    <br>
+    <div class="div-1">  {{run_result_python}} </div>
+</form>
+
+      </div>
+      </div>
+      </div>
+
+        </div>
+
+      <!-- pause  -->
+      <div style="border:1px solid black; background-color:white; margin: 1px 0px" class="div1 p-1 col-4" >
+
+      <div class="container3">
+      <div class="col-md-10 offset-md-1 mt-5">
+      <div class="jumbotron">
+        <h2 class="display-5">PHP Job</h2>
+        <p class="lead font-italic">Python Django project for implementing CRUD operations</p>
+        <hr class="my-4">
+
+
+<form action="" method="post" autocomplete="off">
+ {% csrf_token %}
+
+<!---->  {{form_script_php|crispy}} <!-- we can use this or add more modification below
+
+{{form_script_php.Script|as_crispy_field}}
+    <br>
+ {{form_script_php.RecurrentType|as_crispy_field}}
+    <br>
+  {{form_script_php.RecurrentDate|as_crispy_field}}
+    <br>
+ {{form_script_php.StartDate|as_crispy_field}}
+    <br>
+  {{form_script_php.EndDate|as_crispy_field}}
+    <br>
+-->
+<br>
+<div class="row">
+         <div class="col-md-5">
+               <button type="submit" class="btn btn-success btn-block btn-lg" name="action" value="run_php"><i class="fas fa-stream"></i>Run</button>
+        </div>
+
+          <div class="col-md-7">
+
+        <button style="background-color:red" type="submit" class="btn btn-success btn-block btn-lg" name="action" value="save_php"><i class="fas fa-database"></i>Save Job</button>
+
+
+        </div>
+    </div>
+
+    <br>
+      <!--This is to display the result of the run-->
+<div class="div-1"> {{run_result_php}} </div>
+
+</form>
+
+      </div>
+      </div>
+      </div>
+
+       </div>
+
+
+
+     <hr>
+
+       <!-- My SMS Jobs  -->
+      <div style="background-color:white" class="div1 p-1 col-12" >
+
+      <div class="container3">
+      <div class="col-md-10 offset-md-1 mt-5">
+      <div class="jumbotron">
+        <h2 class="display-5">My SMS Jobs</h2>
+        <p class="lead font-italic">Python Django project for implementing CRUD operations</p>
+        <hr class="my-4">
+
+
+ <table class="table table-borderless">
+  <thead class="border-bottom font-weight-bold">
+     <tr>
+         <td>Message</td>
+          <td>SenderId</td>
+         <td>RecurrentType</td>
+         <td>RecurrentDate</td>
+          <td>StartDate</td>
+          <td>EndDate</td>
+          <td>created_at</td>
+          <td>Paused</td>
+         <td>
+
+         </td>
+     </tr>
+  </thead>
+  <tbody>
+      {% for SMSJob in SMSJob_list %}
+        <tr>
+
+            <td>{{SMSJob.message}}</td>
+            <td>{{SMSJob.SenderId}}</td>
+            <td>{{SMSJob.RecurrentType}}</td>
+            <td>{{SMSJob.RecurrentDate}}</td>
+            <td>{{SMSJob.StartDate}}</td>
+            <td>{{SMSJob.EndDate}}</td>
+            <td>{{SMSJob.created_at}}</td>
+             <td>{{SMSJob.Paused}}</td>
+            <td>
+                {{ScriptJob.name}}
+                <a href="{% url 'home' %}" class="btn text-secondary px-0">
+                    <i class="far fa-edit fa-lg"></i>
+                </a>
+
+            </td>
+        </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+
+
+      </div>
+      </div>
+      </div>
+
+       </div>
+
+   <!-- My Python Jobs  -->
+      <div class="div1 p-1 col-12" >
+
+      <div class="container3">
+      <div class="col-md-10 offset-md-1 mt-5">
+      <div class="jumbotron">
+        <h2 class="display-5">My Python Jobs</h2>
+        <p class="lead font-italic">Python Django project for implementing CRUD operations</p>
+        <hr class="my-4">
+
+
+ <table class="table table-borderless">
+  <thead class="border-bottom font-weight-bold">
+     <tr>
+         <td>Script</td>
+         <td>RecurrentType</td>
+         <td>RecurrentDate</td>
+          <td>StartDate</td>
+          <td>EndDate</td>
+          <td>created_at</td>
+          <td>Paused</td>
+         <td>
+
+         </td>
+     </tr>
+  </thead>
+  <tbody>
+      {% for ScriptJob in ScriptJob_list %}
+        <tr>
+
+            <td>{{ScriptJob.Script}}</td>
+            <td>{{ScriptJob.RecurrentType}}</td>
+            <td>{{ScriptJob.RecurrentDate}}</td>
+            <td>{{ScriptJob.StartDate}}</td>
+            <td>{{ScriptJob.EndDate}}</td>
+            <td>{{ScriptJob.created_at}}</td>
+             <td>{{ScriptJob.Paused}}</td>
+            <td>
+                {{ScriptJob.name}}
+                <a href="{% url 'home' %}" class="btn text-secondary px-0">
+                    <i class="far fa-edit fa-lg"></i>
+                </a>
+
+            </td>
+        </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+      </div>
+      </div>
+      </div>
+
+       </div>
+
+       <!-- My PHP Jobs  -->
+      <div class="div1 p-1 col-12" >
+
+      <div class="container3">
+      <div class="col-md-10 offset-md-1 mt-5">
+      <div class="jumbotron">
+        <h2 class="display-5">My PHP Jobs</h2>
+        <p class="lead font-italic">Python Django project for implementing CRUD operations</p>
+        <hr class="my-4">
+
+
+
+          <table class="table table-borderless">
+  <thead class="border-bottom font-weight-bold">
+     <tr>
+         <td>Script</td>
+         <td>RecurrentType</td>
+         <td>RecurrentDate</td>
+          <td>StartDate</td>
+          <td>EndDate</td>
+          <td>created_at</td>
+          <td>Paused</td>
+         <td>
+
+         </td>
+     </tr>
+  </thead>
+  <tbody>
+      {% for ScriptJob_php in ScriptJob_list_php %}
+        <tr>
+
+            <td>{{ScriptJob_php.Script}}</td>
+            <td>{{ScriptJob_php.RecurrentType}}</td>
+            <td>{{ScriptJob_php.RecurrentDate}}</td>
+            <td>{{ScriptJob_php.StartDate}}</td>
+            <td>{{ScriptJob_php.EndDate}}</td>
+            <td>{{ScriptJob_php.created_at}}</td>
+             <td>{{ScriptJob_php.Paused}}</td>
+            <td>
+                {{ScriptJob_php.name}}
+                <a href="{% url 'home' %}" class="btn text-secondary px-0">
+                    <i class="far fa-edit fa-lg"></i>
+                </a>
+
+            </td>
+        </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+
+      </div>
+      </div>
+      </div>
+
+       </div>
+
+
+       <!-- pause  -->
+      <div class="div1 p-1 col-4" >
+
+      <div class="container3">
+      <div class="col-md-10 offset-md-1 mt-5">
+      <div class="jumbotron">
+        <h2 class="display-5">My Pythons Jobs</h2>
+        <p class="lead font-italic">Python Django project for implementing CRUD operations</p>
+        <hr class="my-4">
+
+
+<table class="table table-borderless">
+  <thead class="border-bottom font-weight-bold">
+     <tr>
+         <td>Full Name</td>
+         <td>Mobile</td>
+         <td>Position</td>
+         <td>
+             <a href="{% url 'home' %}" class="btn btn-outline-success">
+                 <i class="fas fa-plus"></i> Add New
+             </a>
+         </td>
+     </tr>
+  </thead>
+  <tbody>
+      {% for employee in employee_list %}
+        <tr>
+            <td>{{employee.fullname}}</td>
+            <td>{{employee.mobile}}</td>
+            <td>{{employee.position}}</td>
+            <td>
+                <a href="{% url 'employee_update' employee.id %}" class="btn text-secondary px-0">
+                    <i class="far fa-edit fa-lg"></i>
+                </a>
+            </td>
+        </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+      </div>
+      </div>
+      </div>
+
+       </div>
+
+       <!-- pause  -->
+      <div class="div1 p-1 col-4" >
+
+      <div class="container3">
+      <div class="col-md-10 offset-md-1 mt-5">
+      <div class="jumbotron">
+        <h2 class="display-5">My Python Jobs</h2>
+        <p class="lead font-italic">Python Django project for implementing CRUD operations</p>
+        <hr class="my-4">
+
+
+
+<form action="" method="post" autocomplete="off">
+ {% csrf_token %}
+<!--{{form|crispy}}--> <!-- we can use this or add more modification below -->
+ {{form.fullname|as_crispy_field}}
+    <br>
+ {{form.mobile|as_crispy_field}}
+    <br>
+ <div class="row">
+    <div class="col-md-4">
+     {{form.emp_code|as_crispy_field}}
+    </div>
+    <div class="col-md-8">
+      {{form.position|as_crispy_field}}
+    </div>
+ </div>
+<br>
+
+    <div class="row">
+        <div class="col-md-5">
+               <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i>Save</button>
+        </div>
+
+          <div class="col-md-7">
+               <a href="{% url 'employee_list' %}" class="btn btn-secondary btn-block btn-lg">
+                   <i class="fas fa-stream"> </i> back to list
+               </a>
+        </div>
+    </div>
+
+</form>
+
+      </div>
+      </div>
+      </div>
+
+
+
+       </div>
+
+
+
+      <br>
+      <br>
+    </div>
+
+
+<script>
+  $(function () {
+    $("#datetimepicker1").datetimepicker({
+      format: 'DD/MM/YYYY HH:mm',
+    });
+  });
+</script>
+
+
+ <style>
+html, body {
+  height: 100%;
+  background: #87CEFA;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.div-1 {
+        background-color: #EBEBEB;
+        height: 200px;
+        margin: 20px;
+        border: 5px solid;
+
+    }
+
+.full-height {
+  height: 100%;
+   padding: 0;
+  margin: 0;
+  background: yellow;
+}
+
+.full-width {
+height: 100%;
+  width: 100%;
+  background: yellow;
+}
+
+.container {
+  height: 100%;
+
+}
+
+.container2 {
+  height: 100%;
+
+}
+
+
+#div1 {
+  background: #DDD;
+  width: 50%;
+  height: 50%;
+  float: left;
+}
+
+#div2 {
+  background: #AAA;
+  width: 50%;
+  height: 50%;
+  float: left;
+}
+
+#div3 {
+  background: #777;
+  width: 50%;
+  height: 50%;
+  float: left;
+}
+
+#div4 {
+  background: #444;
+  width: 50%;
+  height: 50%;
+  float: left;
+}
+
+
+  /* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+
+
+
+
+</style>
+
+
+ {% endblock content %}

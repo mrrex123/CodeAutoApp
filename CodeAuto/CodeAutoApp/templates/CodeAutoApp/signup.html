@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href='https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+      <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/fonts/pe-icon-7-stroke.css' %}" rel="stylesheet">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+
+</head>
+<body>
+
+
+  <nav id="mainNav" class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="200">
+        <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
+        <div class="container">
+
+
+            <div class="navbar-header">
+
+                <a href="#" class="navbar-brand">
+                    <img src="{% static 'images/logo_new.png' %}" alt="logo" width="220" height="100" style="top: 70px;">
+                </a>
+            </div>
+
+
+            <div  class="navbar-collapse">
+
+                <ul  class="nav navbar-nav navbar-right navbar-uppercase" >
+                    <li>
+                        <a href="#">Code Auto</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-share-alt"></i> Share
+                        </a>
+                        <ul class="dropdown-menu dropdown-danger">
+                            <li>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcovidtest.thetrusthospital.com" target="_blank">
+                                <i class="fa fa-facebook-square"></i> Facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/intent/tweet?text=Check out The Trust Hospital Covid Testing Portal. Book Your Covid Test and pay online with no hustle - https://covidtest.thetrusthospital.com/. Stay Safe." target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+    </nav>
+
+
+
+   <div id="secondsec" class="u" STYLE="background-color: #777777; ">
+
+            <div class="image" style="background-image:url('static/images/rob.jpg')">
+            </div>
+            <div class="container">
+                <div class="sec">
+
+
+                     <div class="team">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="row">
+
+
+                         <div class="title-area" style="margin-top: 130px;"  >
+
+                        <h1 class="title-modern" style="text-align:center; color: #fff">Sign Up</h1>
+                        <div class="separator line-separator" style="color: #fff">♦</div>
+
+                          <div class="center" style=" width: 300px;margin: 0 auto;border-style: solid;padding: 30px; color:#fff; ">
+
+                            <form method="POST">
+                                {% csrf_token %}
+                                <br>
+
+                                   {{form_user|crispy}}
+
+                                 <input type="submit" name="submit" value="Sign Up" class="btn btn-white btn-fill btn-lg " style="margin:0 auto;
+    display:block;">
+
+                            </form>
+
+                              </div>
+
+                             <br>
+                             <br>
+
+                             </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+    </div>
+
+
+    <style>
+
+    html, body {
+    margin: 0;
+    height:100%;
+    width:100%;
+    padding:0;
+}
+
+sec {
+    margin: 0;
+    height:100%;
+    width:100%;
+    padding:0;
+}
+
+section {
+    display: block;
+    background: #CFF;
+    height:100%;
+    width:100%;
+    padding: 60px;
+    padding-left: 120px;
+    box-sizing:border-box;
+}
+
+
+      input {
+        width: 30%;
+        padding: 10px;
+        margin: 5px;
+        outline: none;
+
+      }
+      input[type="submit"] {
+        width: 150px;
+      }
+      input::placeholder {
+        color: #1c87c9;
+        opacity: 1;
+      }
+      input:placeholder-shown {
+        border: 1px solid #095484;
+      }
+    </style>
+</body>
+</html>
+
+
+
+
+
+
+
+

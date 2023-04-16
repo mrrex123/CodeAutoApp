@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+   <!-- <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=0.1"> -->
+
+    <title>Code Automation</title>
+  <!--  <link rel = "icon" href ="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png" type = "image/x-icon"> -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta charset="utf-8" />
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/icons/logo_new.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href='https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+      <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/fonts/pe-icon-7-stroke.css' %}" rel="stylesheet">
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+
+
+    <script src="{% static 'js/swalExtend.js' %}"></script>
+    <link href="{% static 'css/swalExtend.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body class="" content="width=device-width" >
+
+  <nav id="mainNav" class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="200">
+        <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
+        <div class="container">
+
+
+            <div class="navbar-header">
+
+                <a href="#" class="navbar-brand">
+                    <img src="{% static 'images/logo_new.png' %}" alt="logo" width="220" height="100" style="top: 70px;">
+                </a>
+            </div>
+
+
+            <div  class="navbar-collapse">
+
+                <ul  class="nav navbar-nav navbar-right navbar-uppercase" >
+                    <li>
+                        <a href="#">Code Auto</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-share-alt"></i> Share
+                        </a>
+                        <ul class="dropdown-menu dropdown-danger">
+                            <li>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcovidtest.thetrusthospital.com" target="_blank">
+                                <i class="fa fa-facebook-square"></i> Facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/intent/tweet?text=Check out The Trust Hospital Covid Testing Portal. Book Your Covid Test and pay online with no hustle - https://covidtest.thetrusthospital.com/. Stay Safe." target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+    </nav>
+
+
+ <div id="secondsec" class="section section-our-team-freebie">
+        <div class="parallax filter filter-color-black">
+            <div class="image" style="background-image:url('static/images/ai.jpg')">
+            </div>
+            <div class="container">
+                <div class="content">
+                    <div class="row">
+                        <div id="optionId" class="title-area">
+                            <h2>Python Job</h2>
+                            <div class="separator separator-danger">✻</div>
+                            <p class="lead font-italic">Test by running job or save for recurrency</p>
+
+                        </div>
+                    </div>
+
+      <!-- pause  -->
+ <div  style="  background-color:white; margin: 1px 300px"  class="div1 col-4" >
+
+                  <div class="container4">
+                  <div class="col-md-12 offset-md-1 mt-5">
+                  <div class="jumbotron1">
+
+
+
+            <form action="" method="post" autocomplete="off">
+             {% csrf_token %}
+            <!-- --> {{form_script|crispy}} <!-- we can use this or add more modification below-->
+
+            <br>
+
+                <div class="row">
+                    <div class="col-md-5">
+                           <button type="submit" class="btn btn-success btn-block btn-lg" name="action" value="run_python"><i class="fas fa-stream"></i>Run</button>
+                    </div>
+
+                      <div class="col-md-7">
+
+                    <button style="background-color:red" type="submit" class="btn btn-success btn-block btn-lg" name="action" value="save_python"><i class="fas fa-database"></i>Save Job</button>
+
+
+                    </div>
+                </div>
+
+                <br>
+                <div class="div-1">  {{run_result_python}} </div>
+            </form>
+
+                  </div>
+                  </div>
+      </div>
+
+ </div>
+
+                <div class="container2 row p-0 m-0 col-12">
+
+                 <!-- My Python Jobs  -->
+              <div class="div1 p-1 col-12" >
+
+              <div class="container3">
+              <div class="col-md-12 offset-md-1 mt-5">
+              <div class="jumbotron1">
+                <h2 class="display-5">My Python Jobs</h2>
+                <p class="lead font-italic">Python Django project for implementing CRUD operations</p>
+                <hr class="my-4">
+
+
+         <table class="table table-borderless">
+          <thead class="border-bottom font-weight-bold">
+             <tr>
+                 <td>Script</td>
+                 <td>RecurrentType</td>
+                 <td>RecurrentDate</td>
+                  <td>StartDate</td>
+                  <td>EndDate</td>
+                  <td>created_at</td>
+                  <td>Paused</td>
+                 <td>
+
+                 </td>
+             </tr>
+          </thead>
+          <tbody>
+              {% for ScriptJob in ScriptJob_list %}
+                <tr>
+
+                    <td>{{ScriptJob.Script}}</td>
+                    <td>{{ScriptJob.RecurrentType}}</td>
+                    <td>{{ScriptJob.RecurrentDate}}</td>
+                    <td>{{ScriptJob.StartDate}}</td>
+                    <td>{{ScriptJob.EndDate}}</td>
+                    <td>{{ScriptJob.created_at}}</td>
+                     <td>{{ScriptJob.Paused}}</td>
+                    <td>
+                        {{ScriptJob.name}}
+                        <a href="{% url 'home' %}" class="btn text-secondary px-0">
+                            <i class="far fa-edit fa-lg"></i>
+                        </a>
+
+                    </td>
+                </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+
+              </div>
+              </div>
+              </div>
+
+               </div>
+
+               </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<script>
+    $(document).ready(function(){
+      var RecurrentDate2_input=$('input[name="{{form_script_php.RecurrentDate.name}}"]'); //our date input has the name "date"
+      var StartDate2_input=$('input[name="{{form_script_php.StartDate.name}}"]'); //our date input has the name
+      var EndDate2_input=$('input[name="{{form_script_php.EndDate.name}}"]'); //our date input has the name
+
+      var container2=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container2,
+        todayHighlight: true,
+        autoclose: true,
+        changeMonth: true,
+        changeYear: true
+      };
+
+      RecurrentDate2_input.datepicker(options);
+      StartDate2_input.datepicker(options);
+      EndDate2_input.datepicker(options);
+    })
+</script>
+
+
+</body>
+
+</html>
